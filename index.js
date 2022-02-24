@@ -4,7 +4,7 @@
 
 // grab input and input button
 
-
+const message = document.querySelector('aside')
 
 
 const selectForm = document.querySelector('form')
@@ -36,16 +36,18 @@ function addMovie (event){
 
 function deleteMovie(event){
     event.target.parentNode.remove()
+    message.textContent = "movie deleted"
 }
 
 
 function crossOffMovie (event) {
     event.target.classList.toggle('checked')
-
-    // const checkIt = document.querySelector('checked')
-    // checkIt.textContent = movieList
-    // movie.appendChild(movieTitle)
-    // check.targe.parentNode(checkIt)
+    if(event.target.classList.contains('checked')){
+        message.textContent = "movie watched"
+    }else{
+        message.textContent = "movie added back!"
+    }
+    
 }
 
 // event listener
